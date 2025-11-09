@@ -122,7 +122,6 @@ export default defineType({
         { name: "twitter", title: "Twitter/X", type: "url" },
         { name: "website", title: "Personal Website", type: "url" },
         { name: "hashnode", title: "Hashnode", type: "url" },
-        { name: "devto", title: "Dev.to", type: "url" },
       ],
     }),
      defineField({
@@ -180,5 +179,5 @@ export default defineType({
         media: media,
       };
     },
-  },
+  }, 
 });

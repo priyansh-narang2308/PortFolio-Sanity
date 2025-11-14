@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import { useClerk, useUser } from "@clerk/nextjs";
 import { useState } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { MessageCircle, X } from "lucide-react";
+import { useSidebar } from "./ui/sidebar";
 
 interface ProfileImageProps {
   imageUrl: string;
@@ -13,13 +14,13 @@ interface ProfileImageProps {
 }
 
 const ProfileImage = ({ imageUrl, firstName, lastName }: ProfileImageProps) => {
+  const {toggleSidebar,open} = useSidebar();
   const [isHovered, setIsHovered] = useState(false);
   const { isSignedIn } = useUser();
   const { openSignIn } = useClerk();
 
   return (
     <Button
-    
       type="button"
       className="relative aspect-square rounded-2xl overflow-hidden border-4 border-primary/20 block group cursor-pointer w-full"
       onMouseEnter={() => setIsHovered(true)}
@@ -49,17 +50,17 @@ const ProfileImage = ({ imageUrl, firstName, lastName }: ProfileImageProps) => {
         }`}
       >
         <div className="text-center space-y-3">
-          {true ? (
+          {open ? (
             <X className="w-12 h-12 text-white mx-auto" />
           ) : (
             <MessageCircle className="w-12 h-12 text-white mx-auto" />
           )}
 
-           <div className="text-white text-xl font-semibold">
-            {true ? "Close Chat" : "Chat with AI Twin"}
+          <div className="text-white text-xl font-semibold">
+            {open ? "Close Chat" : "Chat with AI Twin"}
           </div>
           <div className="text-white/80 text-sm">
-            {true ? "Click to close chat" : "Click to open chat"}
+            {open ? "Click to close chat" : "Click to open chat"}
           </div>
         </div>
       </div>

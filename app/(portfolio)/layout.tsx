@@ -3,6 +3,8 @@ import { Atkinson_Hyperlegible } from "next/font/google";
 import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { SanityLive } from "@/sanity/lib/live";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/app-sidebar";
 
 const atkins = Atkinson_Hyperlegible({
   subsets: ["latin"],
@@ -23,7 +25,10 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body suppressHydrationWarning={true} className={`${atkins.className}`}>
-          {children}
+          <SidebarProvider>
+            <SidebarInset>{children}</SidebarInset>
+            <AppSidebar side="right"/>
+          </SidebarProvider>
 
           <SanityLive />
         </body>

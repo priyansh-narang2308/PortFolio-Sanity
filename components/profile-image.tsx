@@ -1,10 +1,9 @@
 "use client";
 
 import { useClerk, useUser } from "@clerk/nextjs";
-import { useState } from "react";
-import { Button } from "./ui/button";
-import Image from "next/image";
 import { MessageCircle, X } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 import { useSidebar } from "./ui/sidebar";
 
 interface ProfileImageProps {
@@ -13,19 +12,24 @@ interface ProfileImageProps {
   lastName: string;
 }
 
-const ProfileImage = ({ imageUrl, firstName, lastName }: ProfileImageProps) => {
-  const {toggleSidebar,open} = useSidebar();
+export function ProfileImage({
+  imageUrl,
+  firstName,
+  lastName,
+}: ProfileImageProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const { toggleSidebar, open } = useSidebar();
   const { isSignedIn } = useUser();
   const { openSignIn } = useClerk();
 
   return (
-    <Button
+    <button
       type="button"
+      onClick={() => (isSignedIn ? toggleSidebar() : openSignIn())}
       className="relative aspect-square rounded-2xl overflow-hidden border-4 border-primary/20 block group cursor-pointer w-full"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      aria-label="Toggle AI Chat Sidebar Button"
+      aria-label="Toggle AI Chat Sidebar"
     >
       <Image
         src={imageUrl}
@@ -35,7 +39,7 @@ const ProfileImage = ({ imageUrl, firstName, lastName }: ProfileImageProps) => {
         priority
       />
 
-      {/* to show a badge of online */}
+      {/* Online Badge */}
       <div className="absolute top-4 right-4 flex items-center gap-2 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full">
         <div className="relative">
           <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
@@ -44,6 +48,7 @@ const ProfileImage = ({ imageUrl, firstName, lastName }: ProfileImageProps) => {
         <span className="text-xs font-medium text-white">Online</span>
       </div>
 
+      {/* Hover Overlay */}
       <div
         className={`absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${
           isHovered ? "opacity-100" : "opacity-0"
@@ -64,8 +69,6 @@ const ProfileImage = ({ imageUrl, firstName, lastName }: ProfileImageProps) => {
           </div>
         </div>
       </div>
-    </Button>
+    </button>
   );
-};
-
-export default ProfileImage;
+}

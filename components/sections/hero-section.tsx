@@ -4,7 +4,8 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { BackgroundRippleEffect } from "../ui/background-ripple-effect";
 import { LayoutTextFlip } from "../ui/layout-text-flip";
 import { urlFor } from "@/sanity/lib/image";
-import ProfileImage from "../profile-image";
+import { ProfileImage } from "../profile-image";
+
 
 // Defining the groq query first to fetch from cms
 const HERO_SECTION_QUERY = defineQuery(`

@@ -1,5 +1,7 @@
-import { sanityFetch } from "@/sanity/lib/live";
 import { defineQuery } from "groq";
+import { sanityFetch } from "@/sanity/lib/live";
+import Chat from "./chat";
+
 
 const CHAT_PROFILE_QUERY = defineQuery(`*[_id == "singleton-profile"][0]{
     _id,
@@ -23,7 +25,11 @@ const CHAT_PROFILE_QUERY = defineQuery(`*[_id == "singleton-profile"][0]{
 const ChatComponent = async () => {
   const { data: profile } = await sanityFetch({ query: CHAT_PROFILE_QUERY });
 
-  return <div>\</div>;
+  return (
+    <div className="h-full w-full">
+      <Chat profile={profile} />
+    </div>
+  );
 };
 
 export default ChatComponent;

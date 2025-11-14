@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { SanityLive } from "@/sanity/lib/live";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import SidebarToggle from "@/components/sidebar-toggle";
 
 const atkins = Atkinson_Hyperlegible({
   subsets: ["latin"],
@@ -27,7 +28,9 @@ export default function RootLayout({
         <body suppressHydrationWarning={true} className={`${atkins.className}`}>
           <SidebarProvider>
             <SidebarInset>{children}</SidebarInset>
-            <AppSidebar side="right"/>
+            <AppSidebar side="right" />
+
+            <SidebarToggle />
           </SidebarProvider>
 
           <SanityLive />

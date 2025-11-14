@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Atkinson_Hyperlegible } from "next/font/google";
 import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
+import { SanityLive } from "@/sanity/lib/live";
 
 const atkins = Atkinson_Hyperlegible({
   subsets: ["latin"],
@@ -23,6 +24,8 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body suppressHydrationWarning={true} className={`${atkins.className}`}>
           {children}
+
+          <SanityLive />
         </body>
       </html>
     </ClerkProvider>

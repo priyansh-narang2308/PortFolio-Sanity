@@ -124,7 +124,7 @@ export default defineType({
         { name: "hashnode", title: "Hashnode", type: "url" },
       ],
     }),
-     defineField({
+    defineField({
       name: "yearsOfExperience",
       title: "Years of Experience",
       type: "number",
@@ -179,5 +179,5 @@ export default defineType({
         media: media,
       };
     },
-  }, 
+  },
 });

@@ -39,7 +39,7 @@ const HeroSection = async () => {
       id="home"
       className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden"
     >
-      <BackgroundRippleEffect cellSize={50} rows={30} cols={70} />
+      <BackgroundRippleEffect cellSize={50} rows={10} cols={70} />
 
       <div className="relative z-10 container mx-auto max-w-6xl">
         <div className="@container">

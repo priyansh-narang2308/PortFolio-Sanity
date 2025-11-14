@@ -24,6 +24,8 @@ const HERO_SECTION_QUERY = defineQuery(`
 const HeroSection =async () => {
   const { data: profile } = await sanityFetch({ query: HERO_SECTION_QUERY });
 
+  console.log(profile)
+
   return <div>HeroSection</div>;
 };
 

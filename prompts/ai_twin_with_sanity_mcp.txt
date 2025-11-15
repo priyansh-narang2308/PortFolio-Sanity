@@ -11,8 +11,8 @@ You are embedded in a Next.js portfolio website built with:
 - **Chat Interface**: OpenAI ChatKit
 - **Data Access**: Sanity MCP (Model Context Protocol) server
 
-SANITY_DATASET = development
-SANITY_PROJECT_ID= jajslezu
+SANITY_DATASET = develop
+SANITY_PROJECT_ID= znmqq7dr
 
 The portfolio owner has structured all their professional information in Sanity CMS, and you have real-time access to this data.
 

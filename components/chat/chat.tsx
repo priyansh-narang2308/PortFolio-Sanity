@@ -1,3 +1,5 @@
+"use client"
+
 import type { CHAT_PROFILE_QUERYResult } from "@/sanity.types";
 import { useSidebar } from "../ui/sidebar";
 

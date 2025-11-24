@@ -18,9 +18,11 @@ export function ProfileImage({
   lastName,
 }: ProfileImageProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const { toggleSidebar, open } = useSidebar();
+  const { toggleSidebar, open, isMobile, openMobile } = useSidebar();
   const { isSignedIn } = useUser();
   const { openSignIn } = useClerk();
+
+  const isSidebarOpen = isMobile ? openMobile : open;
 
   return (
     <button
@@ -39,7 +41,6 @@ export function ProfileImage({
         priority
       />
 
-      {/* Online Badge */}
       <div className="absolute top-4 right-4 flex items-center gap-2 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-full">
         <div className="relative">
           <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse" />
@@ -48,27 +49,24 @@ export function ProfileImage({
         <span className="text-xs font-medium text-white">Online</span>
       </div>
 
-      {/* Hover Overlay */}
-      <div
-        className={`absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center transition-opacity duration-300 ${
-          isHovered ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <div className="text-center space-y-3">
-          {open ? (
-            <X className="w-12 h-12 text-white mx-auto" />
-          ) : (
-            <MessageCircle className="w-12 h-12 text-white mx-auto" />
-          )}
+      {isHovered && (
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center">
+          <div className="text-center space-y-3">
+            {isSidebarOpen ? (
+              <X className="w-12 h-12 text-white mx-auto" />
+            ) : (
+              <MessageCircle className="w-12 h-12 text-white mx-auto" />
+            )}
 
-          <div className="text-white text-xl font-semibold">
-            {open ? "Close Chat" : "Chat with AI Twin"}
-          </div>
-          <div className="text-white/80 text-sm">
-            {open ? "Click to close chat" : "Click to open chat"}
+            <div className="text-white text-xl font-semibold">
+              {isSidebarOpen ? "Close Chat" : "Chat with AI Twin"}
+            </div>
+            <div className="text-white/80 text-sm">
+              {isSidebarOpen ? "Click to close chat" : "Click to open chat"}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </button>
   );
 }

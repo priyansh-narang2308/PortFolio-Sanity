@@ -5,6 +5,7 @@ const PortfolioContent = () => {
   return (
     <>
       <HeroSection />
+
       <AboutSection />
     </>
   );

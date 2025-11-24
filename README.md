@@ -6,3 +6,7 @@
 
 # INSIDE OF THE OPENAI MCP SERVER VIA SANITY
 ## QUERY DOCUMENTS,GET SCHEMA, GET CONTEXT, list_workspace_schemas, SEMANTIC SEARCH, LIST DATAASETS , LIST PROJECTS
+
+# pnpm install @openai/chatkit-react
+
+## added this as a script from openai  <Script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" strategy="afterInteractive"/>

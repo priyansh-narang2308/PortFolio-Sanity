@@ -26,5 +26,17 @@ export async function createSession() {
       Authorization: `Bearer ${API_KEY}`,
       "OpenAI-Beta": "chatkit_beta=v1",
     },
+    body: JSON.stringify({
+      workflow: { id: WORKFLOW_ID },
+      user: userId,
+    }),
   });
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`Failed to create session: ${error}`);
+  }
+
+  const data = await response.json();
+
+  return data.client_secret as string;
 }

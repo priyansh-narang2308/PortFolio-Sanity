@@ -6,6 +6,7 @@ import { SanityLive } from "@/sanity/lib/live";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import SidebarToggle from "@/components/sidebar-toggle";
+import Script from "next/script";
 
 const atkins = Atkinson_Hyperlegible({
   subsets: ["latin"],
@@ -26,6 +27,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body suppressHydrationWarning={true} className={`${atkins.className}`}>
+          <Script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" strategy="afterInteractive"/>
           <SidebarProvider>
             <SidebarInset>{children}</SidebarInset>
             <AppSidebar side="right" />

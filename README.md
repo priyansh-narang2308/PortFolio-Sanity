@@ -10,3 +10,5 @@
 # pnpm install @openai/chatkit-react
 
 ## added this as a script from openai  <Script src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js" strategy="afterInteractive"/>
+
+# chatkiti.openai/playgorund for the theming

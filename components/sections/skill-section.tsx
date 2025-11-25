@@ -31,9 +31,8 @@ const SkillSection = async () => {
             work with daily
           </p>
         </div>
-      <SkillChart skills={skills}/>
+        <SkillChart skills={skills} />
       </div>
-
     </section>
   );
 };

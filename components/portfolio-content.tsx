@@ -1,5 +1,6 @@
 import AboutSection from "./sections/about-section";
 import HeroSection from "./sections/hero-section";
+import SkillSection from "./sections/skill-section";
 import TestimonialSection from "./sections/testimonial-section";
 
 const PortfolioContent = () => {
@@ -8,6 +9,7 @@ const PortfolioContent = () => {
       <HeroSection />
       <AboutSection />
       <TestimonialSection/>
+      <SkillSection/>
     </>
   );
 };

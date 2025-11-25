@@ -4,15 +4,22 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { AnimatedTestimonials } from "../ui/animated-testimonials";
 
 const TESTI_QUERY =
-  defineQuery(`*[_type=="testimonial"&& featured==true]|order(order asc){
-  
-  name,position,company,testimonial,rating,date,avatar,companyLogo,linkedinUrl
+  defineQuery(`*[_type=="testimonial" && featured==true] | order(order asc){
+    name,
+    position,
+    company,
+    testimonial,
+    rating,
+    date,
+    avatar,
+    companyLogo,
+    linkedinUrl
   }`);
 
 const TestimonialSection = async () => {
   const { data: testimonials } = await sanityFetch({ query: TESTI_QUERY });
 
-  if (!testimonials || testimonials?.length === 0) {
+  if (!testimonials || testimonials.length === 0) {
     return null;
   }
 
@@ -22,11 +29,9 @@ const TestimonialSection = async () => {
     designation: testimonial.company
       ? `${testimonial.position} at ${testimonial.company}`
       : testimonial.position || "",
-
     src: testimonial.avatar
       ? urlFor(testimonial.avatar).width(500).height(500).url()
       : "https://images.unsplash.com/photo-1472099645785-5658abf4f4e7?q=80&w=500&auto=format&fit=crop",
-
     companyLogo: testimonial.companyLogo
       ? urlFor(testimonial.companyLogo).width(32).height(32).url()
       : undefined,

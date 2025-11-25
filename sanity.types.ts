@@ -963,6 +963,56 @@ export type HERO_SECTION_QUERYResult = {
   } | null;
 } | null;
 
+// Source: ./components/sections/skill-section.tsx
+// Variable: SKILL_QUERY
+// Query: *[_type=="skill"] | order(category asc, order asc){    name,    category,    proficiency,    percentage,    yearsOfExperience,    color  }
+export type SKILL_QUERYResult = Array<{
+  name: string | null;
+  category: "ai-ml" | "backend" | "cloud" | "database" | "design" | "devops" | "frontend" | "mobile" | "other" | "soft-skills" | "testing" | "tools" | null;
+  proficiency: "advanced" | "beginner" | "expert" | "intermediate" | null;
+  percentage: number | null;
+  yearsOfExperience: number | null;
+  color: string | null;
+}>;
+
+// Source: ./components/sections/testimonial-section.tsx
+// Variable: TESTI_QUERY
+// Query: *[_type=="testimonial" && featured==true] | order(order asc){    name,    position,    company,    testimonial,    rating,    date,    avatar,    companyLogo,    linkedinUrl  }
+export type TESTI_QUERYResult = Array<{
+  name: string | null;
+  position: string | null;
+  company: string | null;
+  testimonial: string | null;
+  rating: number | null;
+  date: string | null;
+  avatar: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  } | null;
+  companyLogo: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  linkedinUrl: string | null;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
@@ -970,5 +1020,7 @@ declare module "@sanity/client" {
     "*[_id == \"singleton-profile\"][0]{\n    _id,\n    _type,\n    _createdAt,\n    _updatedAt,\n    _rev,\n    firstName,\n    lastName,\n    headline,\n    shortBio,\n    email,\n    phone,\n    location,\n    availability,\n    socialLinks,\n    yearsOfExperience,\n    profileImage\n  }": CHAT_PROFILE_QUERYResult;
     "*[_id == \"singleton-profile\"][0]{\n  firstName,\n  lastName,\n  fullBio,\n  yearsOfExperience,\n  stats,\n  email,\n  phone,\n  location\n}": ABOUT_SECTION_QUERYResult;
     "\n  *[_id == \"singleton-profile\"][0]{\n    firstName,\n    lastName,\n    headline,\n    headlineStaticText,\n    headlineAnimatedWords,\n    headlineAnimationDuration,\n    shortBio,\n    email,\n    phone,\n    location,\n    availability,\n    socialLinks,\n    yearsOfExperience,\n    profileImage\n  }\n": HERO_SECTION_QUERYResult;
+    "*[_type==\"skill\"] | order(category asc, order asc){\n    name,\n    category,\n    proficiency,\n    percentage,\n    yearsOfExperience,\n    color\n  }": SKILL_QUERYResult;
+    "*[_type==\"testimonial\" && featured==true] | order(order asc){\n    name,\n    position,\n    company,\n    testimonial,\n    rating,\n    date,\n    avatar,\n    companyLogo,\n    linkedinUrl\n  }": TESTI_QUERYResult;
   }
 }

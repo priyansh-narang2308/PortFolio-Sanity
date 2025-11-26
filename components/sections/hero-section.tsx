@@ -5,6 +5,7 @@ import { BackgroundRippleEffect } from "../ui/background-ripple-effect";
 import { LayoutTextFlip } from "../ui/layout-text-flip";
 import { urlFor } from "@/sanity/lib/image";
 import { ProfileImage } from "../profile-image";
+import { Particles } from "../ui/particles";
 
 
 // Defining the groq query first to fetch from cms
@@ -40,6 +41,7 @@ const HeroSection = async () => {
       className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden"
     >
       <BackgroundRippleEffect cellSize={50} rows={10} cols={70} />
+
 
       <div className="relative z-10 container mx-auto max-w-6xl">
         <div className="@container">

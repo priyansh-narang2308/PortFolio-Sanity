@@ -21,7 +21,7 @@ const ContactSection = async () => {
   return (
     <section id="contact" className="py-20 px-6 pb-40 bg-muted/30">
  <div className="w-full flex justify-center mb-16">
-    <Globe className="w-[300px] h-[300px]" />
+    <Globe className="w-[500px] h-[500px]" />
   </div>
 
 

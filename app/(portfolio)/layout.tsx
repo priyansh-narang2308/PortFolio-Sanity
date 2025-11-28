@@ -35,7 +35,7 @@ export default async function RootLayout({
             src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
             strategy="afterInteractive"
           />
-          <SidebarProvider>
+          <SidebarProvider defaultOpen={false}>
             <SidebarInset>{children}</SidebarInset>
             {isAuthenticated && <AppSidebar side="right" />}
 

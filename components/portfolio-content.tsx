@@ -1,5 +1,6 @@
 import AboutSection from "./sections/about-section";
 import Certificationsection from "./sections/certification-section";
+import ContactSection from "./sections/contact-section";
 import EducationSection from "./sections/education-section";
 import ExperienceSection from "./sections/experience-section";
 import HeroSection from "./sections/hero-section";
@@ -18,6 +19,7 @@ const PortfolioContent = () => {
       <EducationSection />
       <ProjectsSection />
       <Certificationsection/>
+      <ContactSection/>
     </>
   );
 };

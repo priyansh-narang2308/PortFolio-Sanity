@@ -8,6 +8,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import SidebarToggle from "@/components/sidebar-toggle";
 import Script from "next/script";
+import { FloatingDock } from "@/components/floating-dock";
 
 const atkins = Atkinson_Hyperlegible({
   subsets: ["latin"],
@@ -38,7 +39,7 @@ export default async function RootLayout({
           <SidebarProvider defaultOpen={false}>
             <SidebarInset>{children}</SidebarInset>
             {isAuthenticated && <AppSidebar side="right" />}
-
+<FloatingDock/>
             <SidebarToggle />
           </SidebarProvider>
 

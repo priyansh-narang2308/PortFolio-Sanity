@@ -72,7 +72,7 @@ export function FloatingDockClient({ navItems }: FloatingDockClientProps) {
 
   return (
     <>
-      {/* Desktop: Horizontal dock - bottom left on md, bottom center on lg+ */}
+
       <div
         className={`hidden md:block fixed z-30 transition-all duration-300 pointer-events-none group/dock ${
           isSidebarOpen
@@ -89,7 +89,7 @@ export function FloatingDockClient({ navItems }: FloatingDockClientProps) {
             />
           ))}
 
-          {/* Desktop More Menu Button */}
+
           {desktop.shouldShowMore && (
             <div className="relative">
               <button
@@ -106,14 +106,14 @@ export function FloatingDockClient({ navItems }: FloatingDockClientProps) {
                     )}
                   </div>
                 </div>
-                {/* Tooltip */}
+
                 <div className="absolute -top-9 md:-top-12 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-xl bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-white/40 dark:border-white/20 text-xs md:text-sm font-medium text-neutral-800 dark:text-neutral-200 whitespace-nowrap opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-y-2 transition-all duration-300 pointer-events-none shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]">
                   More
                   <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-white/90 dark:bg-black/90 border-r border-b border-white/40 dark:border-white/20" />
                 </div>
               </button>
 
-              {/* Desktop More Menu - Expands Upward */}
+
               {desktopMoreMenuOpen && (
                 <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-[100] flex flex-col-reverse gap-2 p-3 rounded-xl bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-white/40 dark:border-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.6)] animate-in slide-in-from-bottom-2 duration-200">
                   {desktop.hidden.map((item) => (
@@ -131,7 +131,6 @@ export function FloatingDockClient({ navItems }: FloatingDockClientProps) {
         </div>
       </div>
 
-      {/* Mobile: Hamburger menu button at top right */}
       <div className="md:hidden fixed top-4 right-4 z-30">
         <button
           type="button"
@@ -145,7 +144,6 @@ export function FloatingDockClient({ navItems }: FloatingDockClientProps) {
           )}
         </button>
 
-        {/* Mobile Vertical menu */}
         {mobileMenuOpen && (
           <div className="absolute top-14 right-0 z-[100] flex flex-col gap-2 p-3 rounded-xl bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-white/40 dark:border-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.6)] animate-in slide-in-from-top-2 duration-200">
             {mobile.visible.map((item) => (
@@ -157,7 +155,6 @@ export function FloatingDockClient({ navItems }: FloatingDockClientProps) {
               />
             ))}
 
-            {/* Mobile More Menu Button */}
             {mobile.shouldShowMore && (
               <div className="relative">
                 <button
@@ -174,14 +171,13 @@ export function FloatingDockClient({ navItems }: FloatingDockClientProps) {
                       )}
                     </div>
                   </div>
-                  {/* Tooltip */}
                   <div className="absolute right-14 top-1/2 -translate-y-1/2 px-3 py-1.5 rounded-lg bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-white/40 dark:border-white/20 text-sm font-medium text-neutral-800 dark:text-neutral-200 whitespace-nowrap opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 group-hover:-translate-x-1 transition-all duration-300 pointer-events-none shadow-[0_8px_32px_0_rgba(0,0,0,0.2)]">
                     More
                     <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-2 h-2 rotate-45 bg-white/90 dark:bg-black/90 border-r border-t border-white/40 dark:border-white/20" />
                   </div>
                 </button>
 
-                {/* Mobile More Menu - Expands Sideways (to the left) */}
+
                 {mobileMoreMenuOpen && (
                   <div className="absolute top-0 right-16 z-[110] flex flex-row-reverse gap-2 p-3 rounded-xl bg-white/90 dark:bg-black/90 backdrop-blur-xl border border-white/40 dark:border-white/30 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.6)] animate-in slide-in-from-right-2 duration-200">
                     {mobile.hidden.map((item) => (

@@ -24,7 +24,11 @@ export const metadata: Metadata = {
   description: "An AI Portfolio generated using OpenAI's agentkit and chatkit",
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const { userId } = await auth();
   const isAuthenticated = !!userId;
 
@@ -33,7 +37,6 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <html lang="en" suppressHydrationWarning>
           <body className={atkins.className} suppressHydrationWarning>
-
             <Script
               src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
               strategy="afterInteractive"
@@ -47,7 +50,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <FloatingDock />
               <SidebarToggle />
 
-              <div className="fixed md:bottom-6 md:right-24 top-4 md:top-auto md:left-auto z-0">
+              <div className="fixed top-4 left-4 md:bottom-6 md:right-24 md:top-auto md:left-auto z-40">
                 <div className="w-10 h-10 md:w-12 md:h-12">
                   <ModeToggle />
                 </div>

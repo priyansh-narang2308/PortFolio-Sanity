@@ -49,24 +49,7 @@ export function ProfileImage({
         <span className="text-xs font-medium text-white">Online</span>
       </div>
 
-      {isHovered && (
-        <div className="absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center">
-          <div className="text-center space-y-3">
-            {isSidebarOpen ? (
-              <X className="w-12 h-12 text-white mx-auto" />
-            ) : (
-              <MessageCircle className="w-12 h-12 text-white mx-auto" />
-            )}
-
-            <div className="text-white text-xl font-semibold">
-              {isSidebarOpen ? "Close Chat" : "Chat with AI Twin"}
-            </div>
-            <div className="text-white/80 text-sm">
-              {isSidebarOpen ? "Click to close chat" : "Click to open chat"}
-            </div>
-          </div>
-        </div>
-      )}
+      
     </button>
   );
 }

@@ -1,11 +1,13 @@
-import { defineQuery } from "groq";
 import Link from "next/link";
+import { defineQuery } from "groq";
 import { sanityFetch } from "@/sanity/lib/live";
 import { BackgroundRippleEffect } from "../ui/background-ripple-effect";
 import { LayoutTextFlip } from "../ui/layout-text-flip";
 import { urlFor } from "@/sanity/lib/image";
 import { ProfileImage } from "../profile-image";
-import { Particles } from "../ui/particles";
+
+
+
 
 
 // Defining the groq query first to fetch from cms
@@ -36,12 +38,15 @@ const HeroSection = async () => {
   }
 
   return (
+
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden"
     >
-      <BackgroundRippleEffect cellSize={50} rows={10} cols={70} />
 
+
+
+      <BackgroundRippleEffect rows={8} cols={30} cellSize={56} />
 
       <div className="relative z-10 container mx-auto max-w-6xl">
         <div className="@container">
@@ -149,7 +154,9 @@ const HeroSection = async () => {
           </div>
         </div>
       </div>
+
     </section>
+
   );
 };
 
